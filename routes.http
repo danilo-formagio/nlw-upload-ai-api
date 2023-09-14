@@ -23,3 +23,15 @@ Content-Type: application/json
 {
   "prompt": "ipca, bolsa, mercado, noticias"
 }
+
+###
+
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "525c4ccb-243a-4859-b54b-681215222096",
+  "temperature": 0.5,
+  "template": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}'''"
+}
