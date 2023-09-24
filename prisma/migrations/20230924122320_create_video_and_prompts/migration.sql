@@ -10,6 +10,7 @@ CREATE TABLE "Video" (
 -- CreateTable
 CREATE TABLE "Prompt" (
     "id" TEXT NOT NULL PRIMARY KEY,
+    "language" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "template" TEXT NOT NULL
 );
