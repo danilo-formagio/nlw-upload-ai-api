@@ -111,6 +111,28 @@ The return should follow the following format:
   '''`.trim()
     }
   });
+
+  await prisma.prompt.create({
+    data: {
+      language: 'pt',
+      title: 'Transcrição do vídeo',
+      template: `Exiba a transcrição do vídeo:
+'''
+{transcription}
+'''`.trim()
+    }
+  });
+
+  await prisma.prompt.create({
+    data: {
+      language: 'en',
+      title: 'Video transcription',
+      template: `Display the video transcription:
+'''
+{transcription}
+'''`.trim()
+    }
+  });
 }
 
 main()
