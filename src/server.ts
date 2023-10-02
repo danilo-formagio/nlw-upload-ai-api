@@ -9,7 +9,7 @@ import { downloadYoutubeVideoRoute } from "./routes/download-youtube-video";
 const app = fastify();
 
 app.register(fastifyCors, {
-  origin: '*'
+  origin: "*",
 });
 
 app.register(getAllPromptsRoute);
@@ -18,8 +18,10 @@ app.register(createTranscriptionRoute);
 app.register(generateAICompletionRoute);
 app.register(downloadYoutubeVideoRoute);
 
-app.listen({
-  port: 3333
-}).then(() => {
-  console.log('HTTP Server Running')
-});
+app
+  .listen({
+    port: 3333,
+  })
+  .then(() => {
+    console.log("HTTP Server Running");
+  });

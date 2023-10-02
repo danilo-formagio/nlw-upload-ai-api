@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export async function downloadYoutubeVideoRoute(
-  app: FastifyInstance
+  app: FastifyInstance,
 ): Promise<void> {
   app.get("/download/:videoId", async (request, reply) => {
     const bodySchema = z.object({
@@ -24,7 +24,7 @@ function downloadVideo(videoId: string): Promise<Buffer> {
   const videoPathDestination = path.resolve(
     __dirname,
     "../../tmp",
-    "video.mp4"
+    "video.mp4",
   );
 
   return new Promise<Buffer>((resolve, reject) => {
