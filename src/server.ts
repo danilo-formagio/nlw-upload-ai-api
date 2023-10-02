@@ -18,10 +18,6 @@ app.register(createTranscriptionRoute);
 app.register(generateAICompletionRoute);
 app.register(downloadYoutubeVideoRoute);
 
-app
-  .listen({
-    port: 3333,
-  })
-  .then(() => {
-    console.log("HTTP Server Running");
-  });
+app.listen({ port: 3333 }).then(() => {
+  console.log("HTTP Server Running");
+});
