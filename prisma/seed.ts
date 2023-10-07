@@ -1,8 +1,8 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.prompt.deleteMany()
+  await prisma.prompt.deleteMany();
 
   await prisma.prompt.create({
     data: {
@@ -54,7 +54,7 @@ Transcription:
 {transcription}
 '''`.trim()
     }
-  })
+  });
 
   await prisma.prompt.create({
     data: {
@@ -137,10 +137,10 @@ The return should follow the following format:
 
 main()
   .then(async () => {
-    await prisma.$disconnect()
+    await prisma.$disconnect();
   })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+  .catch(async e => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+  });
