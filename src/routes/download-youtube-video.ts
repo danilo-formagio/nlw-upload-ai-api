@@ -3,7 +3,7 @@ import ytdl from 'ytdl-core';
 import { z } from 'zod';
 import fs from 'node:fs';
 import path from 'node:path';
-import { getVideoDirectoryPath } from '../utils/utils';
+import { videoPath } from '../utils/video-path';
 
 export async function downloadYoutubeVideoRoute(app: FastifyInstance): Promise<void> {
   app.get('/download/:videoId', async (request, reply) => {
@@ -20,7 +20,7 @@ export async function downloadYoutubeVideoRoute(app: FastifyInstance): Promise<v
 
 function downloadVideo(videoId: string): Promise<Buffer> {
   const videoURL = `https://www.youtube.com/watch?v=${videoId}`;
-  const videoPathDestination = path.resolve(getVideoDirectoryPath(), 'video.mp4');
+  const videoPathDestination = path.resolve(videoPath(), 'video.mp4');
 
   return new Promise<Buffer>((resolve, reject) => {
     ytdl(videoURL, { quality: 'lowestaudio', filter: 'audioonly' })

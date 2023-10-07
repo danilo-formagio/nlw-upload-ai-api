@@ -6,7 +6,7 @@ import { randomUUID } from 'node:crypto';
 import { promisify } from 'node:util';
 import { pipeline } from 'node:stream';
 import fs from 'node:fs';
-import { getVideoDirectoryPath } from '../utils/utils';
+import { videoPath } from '../utils/video-path';
 
 const pump = promisify(pipeline);
 
@@ -31,7 +31,7 @@ export async function uploadVideoRoute(app: FastifyInstance) {
 
     const fileBaseName = path.basename(data.filename, extension);
     const fileUploadName = `${fileBaseName}-${randomUUID()}${extension}`;
-    const uploadDestination = path.resolve(getVideoDirectoryPath(), fileUploadName);
+    const uploadDestination = path.resolve(videoPath(), fileUploadName);
 
     await pump(data.file, fs.createWriteStream(uploadDestination));
 
